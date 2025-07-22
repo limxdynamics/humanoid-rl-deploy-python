@@ -18,19 +18,19 @@ logger = logging.getLogger("Main")
 def sensor_joy_callback(sensor_joy: datatypes.SensorJoy):
     # Both L1 (button index 4) and Y (button index 3) are pressed to start the stand controller
     if sensor_joy.buttons[4] == 1 and sensor_joy.buttons[3] == 1:
-      os.system(f"python -m limxsdk.ability.cli switch 'mimic damping' 'stand'")
+      os.system(f"python3 -m limxsdk.ability.cli switch 'mimic damping' 'stand'")
 
     # Both L1 (button index 4) and B (button index 1) are pressed to start the mimic controller
     if sensor_joy.buttons[4] == 1 and sensor_joy.buttons[1] == 1:
-      os.system(f"python -m limxsdk.ability.cli switch 'stand damping' 'mimic'")
+      os.system(f"python3 -m limxsdk.ability.cli switch 'stand damping' 'mimic'")
 
     # Both L1 (button index 4) and A (button index 0) are pressed to start the damping controller
     if sensor_joy.buttons[4] == 1 and sensor_joy.buttons[0] == 1:
-      os.system(f"python -m limxsdk.ability.cli switch 'stand mimic' 'damping'")
+      os.system(f"python3 -m limxsdk.ability.cli switch 'stand mimic' 'damping'")
 
     # Both L1 (button index 4) and X (button index 2) are pressed to exit
     if sensor_joy.buttons[4] == 1 and sensor_joy.buttons[2] == 1:
-      os.system(f"python -m limxsdk.ability.cli switch 'stand mimic damping' ''")
+      os.system(f"python3 -m limxsdk.ability.cli switch 'stand mimic damping' ''")
         
 if __name__ == '__main__':
     # Get the robot type from the environment variable
@@ -66,4 +66,4 @@ if __name__ == '__main__':
     robot.subscribeSensorJoy(sensor_joy_callback_partial)
     
     # Load controllers
-    os.system(f"python -m limxsdk.ability.cli load --config {controller_path}")
+    os.system(f"python3 -m limxsdk.ability.cli load --config {controller_path}")
