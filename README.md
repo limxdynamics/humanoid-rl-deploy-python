@@ -1,30 +1,32 @@
-# 训练结果部署
+# 英文 | [中文](README_cn.md)
 
-### 2、创建工作空间
+# Deployment of Training Results
 
- 可以按照以下步骤，创建一个RL部署开发工作空间：
+### 2. Create a Workspace
 
-- 打开一个Bash终端。
+ You can create an RL deployment development workspace by following these steps:
 
-- 创建一个新目录来存放工作空间。例如，可以在用户的主目录下创建一个名为“limx_ws”的目录：
+- Open a Bash terminal.
+
+- Create a new directory to store the workspace. For example, create a directory named "limx_ws" in the user's home directory:
   ```Bash
   mkdir -p ~/limx_ws
   ```
   
-- 下载 MuJoCo 仿真器
+- Download the MuJoCo simulator:
   ```Bash
   cd ~/limx_ws
   git clone --recurse git@github.com:limxdynamics/humanoid-mujoco-sim.git
   ```
   
-- 下载运动控制算法：
+- Download the motion control algorithm:
   ```Bash
   cd ~/limx_ws
   git clone git@github.com:limxdynamics/humanoid-rl-deploy-python.git
   ```
   
-- 设置机器人型号：请参考“查看/设置机器人型号”章节，查看您的机器人型号。如果尚未设置，请按照以下步骤进行设置。
-  - 通过 Shell 命令 `tree -L 1 humanoid-rl-deploy-python/controllers` 列出可用的机器人类型：
+- Set the robot model: If it is not set yet, follow these steps:
+  - List available robot types with the Shell command `tree -L 1 humanoid-rl-deploy-python/controllers` ：
     
     ```
     cd ~/limx_ws
@@ -34,45 +36,45 @@
     
     ```
     
-  - 以`HU_D03_03`（请根据实际机器人类型进行替换）为例，设置机器人型号类型：
+  - Taking `HU_D03_03` (replace with your actual robot type) as an example, set the robot model type:
     
     ```
     echo 'export ROBOT_TYPE=HU_D03_03' >> ~/.bashrc && source ~/.bashrc
     ```
 
-### 3、仿真调试
+### 3. Simulation Debugging
 
-- 运行MuJoco 仿真器（推荐Pyhon 3.8 及以上版本）
+- Run the MuJoCo simulator (Python 3.8 or higher is recommended):
 
-  - 打开一个 Bash 终端。
+  - Open a Bash terminal.
 
-  - 安装运动控制开发库：
-    - Linux x86_64 环境
+  - Install the motion control development library:
+    - For Linux x86_64 environment:
     
       ```bash
       cd ~/limx_ws
       pip install humanoid-mujoco-sim/limxsdk-lowlevel/python3/amd64/limxsdk-*-py3-none-any.whl
       ```
     
-    - Linux aarch64 环境
+    - For Linux aarch64 environment:
     
       ```bash
       cd ~/limx_ws
       pip install humanoid-mujoco-sim/limxsdk-lowlevel/python3/aarch64/limxsdk-*-py3-none-any.whl
       ```
     
-  - 运行 MuJoCo 仿真器：
+  - Run the MuJoCo simulator:
     
     ```bash
     cd ~/limx_ws
     python humanoid-mujoco-sim/simulator.py
     ```
 
-- 运行算法
+- Run the algorithm:
 
-  - 打开一个 Bash 终端。
+  - Open a Bash terminal.
 
-  - 运行算法
+  - Run the algorithm:
     
     ```bash
     python humanoid-rl-deploy-python/main.py
@@ -80,11 +82,11 @@
     
     ![](doc/simulator.gif)
   
-- 虚拟遥控器：仿真的时候可以使用虚拟遥控器来操作机器人。以下是使用虚拟遥控器的具体步骤。
+- Virtual Joystick: You can use a virtual joystick to control the robot during the simulation. Here are the specific steps:
 
-  - 打开一个 Bash 终端。
+  - Open a Bash terminal.
 
-  - 运行虚拟遥控器
+  - Run the virtual joystick:
 
     ```
     ~/limx_ws/humanoid-mujoco-sim/robot-joystick/robot-joystick
@@ -93,31 +95,31 @@
     ![](doc/robot-joystick.png)
 
 
-  - 这时，您可以使用虚拟遥控器来控制机器人。
+  - Now you can use the virtual joystick to control the robot.
   
-    | **按键** | **模式**         | **说明**                                                    |
+    | **Button** | **Mode**         | **Description**                                                    |
     | -------- | ---------------- | ----------------------------------------------------------- |
-    | L1+Y     | 切换到站立模式   | 如机器人没法站立，请点击MuJoco界面中的“Reset”进行复位一下。 |
-    | L1+B     | 切换到打招呼模式 |                                                             |
+    | L1+Y     | Switch to Stand Mode   | If the robot cannot stand, click "Reset" in the MuJoCo interface to reset it. |
+    | L1+B     | Switch to Greeting Mode |                                                             |
 
-### 4、真机调试
+### 4. Real Robot Debugging
 
-- 设置您电脑IP：确保您的电脑与机器人本体通过外置网口连接。设置您的电脑IP地址为：`10.192.1.200`，并通过Shell命令`ping 10.192.1.2` 能够正常ping通。如下图所示对您的开发电脑进行IP设置：
+- Set your computer's IP: Ensure your computer is connected to the robot's external network port. Set your computer's IP address to `10.192.1.200` and verify connectivity with the Shell command `ping 10.192.1.2`. Configure your development computer's IP as shown below:
 
   ![img](doc/ip.png)
 
-- 机器人准备工作：
+- Robot preparation:
 
-  - 请通过机器人左右肩膀的挂钩把机器人吊起来。
-  - 按电源键开机后，按下遥控器`右摇杆`按键，启动机器人电机。
-  - 按下遥控器按键 `L1 + START`切换到开发者模式。在此模式下，用户可以开发自己的运动控制算法。（此模式设置后，下次开机继续生效，如需退出开发者模式请按`L1 + L2 + START`退出）。
+  - Hang the robot using the hooks on its left and right shoulders.
+  - Power on the robot, then press the `right joystick` button on the remote control to activate the robot's motors.
+  - Press `L1 + START` on the remote control to switch to developer mode. In this mode, users can develop their own motion control algorithms. (This mode setting persists after rebooting. To exit developer mode, press `L1 + L2 + START`.)
 
-- 实机部署运行。在Bash终端只需下面Shell命令启动控制算法（在进行实机部署运行时，确保机器人吊装非常重要）：
+- Deploy and run on the real robot. In the Bash terminal, start the control algorithm with the following Shell command:
 
   ```bash
   python humanoid-rl-deploy-python/main.py 10.192.1.2
   ```
   
-- 这时您可以通过遥控器按键`L1 + Y`让机器人进入站立模式。
+- Now you can press `L1 + Y` on the remote control to make the robot stand up.
 
-- 遥控器按`L1 + B`控制机器人打招呼。
+- Press `L1 + B` on the remote control to make the robot wave.
