@@ -1,0 +1,120 @@
+﻿# Standing position parameters
+stand_pos:
+  # Parameters for the legs
+  - -0.15
+  - -0.00
+  - -0.05
+  - 0.30
+  - -0.16
+  - 0.00
+
+  - -0.15
+  - 0.00
+  - 0.05
+  - 0.30
+  - -0.16
+  - 0.00
+
+  # Parameters for the waist
+  - 0.0
+  - 0.0
+  - 0.0
+
+  # Parameters for the head
+  - 0.0
+  - 0.0
+
+  # Parameters for the arms
+  - 0.1
+  - 0.1
+  - -0.2
+  - -0.2
+  - 0.0
+  - 0.0
+  - 0.0
+
+  - 0.1
+  - -0.1
+  - 0.2
+  - -0.2
+  - 0.0
+  - 0.0
+  - 0.0
+
+# Proportional gain parameters for standing
+stand_kp:
+  - 580
+  - 500
+  - 500
+  - 660
+  - 400
+  - 400
+
+  - 580
+  - 500
+  - 500
+  - 660
+  - 400
+  - 400
+
+  - 800
+  - 800
+  - 800
+
+  - 10
+  - 10
+
+  - 80
+  - 80
+  - 80
+  - 50
+  - 40
+  - 20
+  - 10
+
+  - 80
+  - 80
+  - 80
+  - 50
+  - 40
+  - 20
+  - 10
+
+# Derivative gain parameters for standing
+stand_kd:
+  - 8
+  - 6
+  - 6
+  - 8
+  - 2
+  - 2
+
+  - 8
+  - 6
+  - 6
+  - 8
+  - 2
+  - 2
+
+  - 8
+  - 8
+  - 8
+
+  - 1
+  - 1
+
+  - 3
+  - 3
+  - 2
+  - 3
+  - 2
+  - 1
+  - 1
+
+  - 3
+  - 3
+  - 2
+  - 3
+  - 2
+  - 1
+  - 1

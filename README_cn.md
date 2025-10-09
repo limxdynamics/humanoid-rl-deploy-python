@@ -32,14 +32,15 @@
     cd ~/limx_ws
     tree -L 1 humanoid-rl-deploy-python/controllers
     humanoid-rl-deploy-python/controllers
-    └── HU_D03_03
+    ├── HU_D03_03
+    └── HU_D04_01
     
     ```
     
-  - 以`HU_D03_03`（请根据实际机器人类型进行替换）为例，设置机器人型号类型：
+  - 以`HU_D04_01`（请根据实际机器人类型进行替换）为例，设置机器人型号类型：
     
     ```
-    echo 'export ROBOT_TYPE=HU_D03_03' >> ~/.bashrc && source ~/.bashrc
+    echo 'export ROBOT_TYPE=HU_D04_01' >> ~/.bashrc && source ~/.bashrc
     ```
 
 ### 3、仿真调试
