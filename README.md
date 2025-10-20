@@ -113,7 +113,7 @@
 
   - Hang the robot using the hooks on its left and right shoulders.
   - Power on the robot, then press the `right joystick` button on the remote control to activate the robot's motors.
-  - Press `L1 + START` on the remote control to switch to developer mode. In this mode, users can develop their own motion control algorithms. (This mode setting persists after rebooting. To exit developer mode, press `L1 + L2 + START`.)
+  - Press `R1 + DOWN` on the remote control to switch to developer mode. In this mode, users can develop their own motion control algorithms. (This mode setting persists after rebooting. To exit developer mode, press `R1 + LEFT`.)
 
 - Deploy and run on the real robot. In the Bash terminal, start the control algorithm with the following Shell command:
 
