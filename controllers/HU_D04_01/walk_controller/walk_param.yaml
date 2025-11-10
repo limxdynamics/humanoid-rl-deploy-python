@@ -1,0 +1,219 @@
+HumanoidRobotCfg:
+  policy_dir: "/policy/default"
+
+  control:
+    # PD Drive parameters: (useless here)
+    action_scale:
+      # leg
+      [0.2511,  # left_hip_pitch_joint
+      0.2511,  # left_hip_roll_joint
+      0.2511,  # left_hip_yaw_joint
+      0.2511,  # left_knee_joint
+      0.1121,  # left_ankle_pitch_joint
+      0.1121,  # left_ankle_roll_joint
+      # right leg
+      0.2511,  # right_hip_pitch_joint
+      0.2511,  # right_hip_roll_joint
+      0.2511,  # right_hip_yaw_joint
+      0.2511,  # right_knee_joint
+      0.1121,  # right_ankle_pitch_joint
+      0.1121,  # right_ankle_roll_joint
+      # waist
+      0.1121,  # waist_yaw_joint
+      0.1121,  # waist_roll_joint
+      0.1121,  # waist_pitch_joint
+      # head
+      0.3141,  # head_pitch_joint
+      0.3141,  # head_yaw_joint
+      # arm
+      0.1200,  # left_shoulder_pitch_joint
+      0.1200,  # left_shoulder_roll_joint
+      0.1200,  # left_shoulder_yaw_joint
+      0.1200,  # left_elbow_joint
+      0.3141,  # left_wrist_yaw_joint
+      0.3141,  # left_wrist_pitch_joint
+      0.3141,  # left_wrist_roll_joint
+      # right arm
+      0.1200,  # right_shoulder_pitch_joint
+      0.1200,  # right_shoulder_roll_joint
+      0.1200,  # right_shoulder_yaw_joint
+      0.1200,  # right_elbow_joint
+      0.3141,  # right_wrist_yaw_joint
+      0.3141,  # right_wrist_pitch_joint
+      0.3141,  # right_wrist_roll_joint
+      ]
+
+    decimation: 10
+    user_torque_limit:
+      [
+        140.0,
+        140.0,
+        140.0,
+        140.0,
+        80.0,
+        80.0,
+
+        140.0,
+        140.0,
+        140.0,
+        140.0,
+        80.0,
+        80.0,
+        
+        42.0,
+        80.0,
+        80.0,
+
+        19.0,
+        19.0,
+
+        42.0,
+        42.0,
+        42.0,
+        42.0,
+        19.0,
+        19.0,
+        19.0,
+        
+        42.0,
+        42.0,
+        42.0,
+        42.0,
+        19.0,
+        19.0,
+        19.0,
+      ]
+    kp:
+      - 139.41
+      - 139.41
+      - 139.41
+      - 139.41
+      - 93.65
+      - 93.65
+
+      - 139.41
+      - 139.41
+      - 139.41
+      - 139.41
+      - 93.65
+      - 93.65
+
+      - 93.65
+      - 93.65
+      - 93.65
+
+      - 15.12
+      - 15.12
+
+      - 87.51
+      - 87.51
+      - 87.51
+      - 87.51
+      - 15.12
+      - 15.12
+      - 15.12
+
+      - 87.51
+      - 87.51
+      - 87.51
+      - 87.51
+      - 15.12
+      - 15.12
+      - 15.12
+    kd:
+      - 17.75
+      - 17.75
+      - 17.75
+      - 17.75
+      - 11.92
+      - 11.92
+
+      - 17.75
+      - 17.75
+      - 17.75
+      - 17.75
+      - 11.92
+      - 11.92
+
+      - 11.92
+      - 11.92
+      - 11.92
+
+      - 1.93
+      - 1.93
+
+      - 11.14
+      - 11.14
+      - 11.14
+      - 11.14
+      - 1.93
+      - 1.93
+      - 1.93
+
+      - 11.14
+      - 11.14
+      - 11.14
+      - 11.14
+      - 1.93
+      - 1.93
+      - 1.93
+
+    default_angle:
+      - -0.15
+      - -0.00
+      - -0.05
+      - 0.3
+      - -0.16
+      - 0.0
+
+      - -0.15
+      - 0.00
+      - 0.05
+      - 0.3
+      - -0.16
+      - 0.0
+
+      - 0.0
+      - 0.0
+      - 0.0
+      
+      - 0.0
+      - 0.0
+      
+      - 0.1
+      - 0.1
+      - -0.2
+      - -0.2
+      - 0.0
+      - 0.0
+      - 0.0
+
+      - 0.1
+      - -0.1
+      - 0.2
+      - -0.2
+      - 0.0
+      - 0.0
+      - 0.0
+
+    max_vx: 0.5
+    max_vy: 0.3
+    max_vz: 0.5
+
+  normalization:
+    clip_scales:
+      clip_observations: 100.
+      clip_actions: 100.
+    obs_scales:
+      lin_vel: 1.0
+      ang_vel: 0.25
+      dof_pos: 1.0
+      dof_vel: 0.05
+      height_measurements: 5.0
+
+  size:
+    actions_size: 31
+    observations_size: 102 # 3+3+3+31+31+31
+    obs_history_length: 5
+    gait_freq: 0.85
+    gait_offset: 0.5

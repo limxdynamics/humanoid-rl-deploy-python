@@ -36,6 +36,12 @@ abilities:
     config: {
       update_rate: 1000
     }
+  walk:
+    type: "walk/controller"
+    script_path: "walk_controller/walk_controller.py"
+    config: {
+      update_rate: 1000
+    }
   damping:
     type: "damping/controller"
     script_path: "damping_controller/damping_controller.py"
