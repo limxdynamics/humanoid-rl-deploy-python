@@ -123,8 +123,8 @@
   python humanoid-rl-deploy-python/main.py 10.192.1.2
   ```
   
-- Now you can press `L1 + Y` on the remote control to make the robot stand up.
+- Now you can press `L1 + △` on the remote control to make the robot stand up.
 
-- Press `L1 + B` on the remote control to make the robot wave.
+- Press `L1 + 〇` on the remote control to make the robot wave.
 
-- Press `L2 + X` on the remote control to make the robot walk.
+- Press `L2 + 口` on the remote control to make the robot walk.

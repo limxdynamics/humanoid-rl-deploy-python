@@ -18,15 +18,15 @@ logger = logging.getLogger("Main")
 def sensor_joy_callback(sensor_joy: datatypes.SensorJoy):
     # Both L1 (button index 4) and Y (button index 3) are pressed to start the stand controller
     if sensor_joy.buttons[4] == 1 and sensor_joy.buttons[3] == 1:
-      os.system(f"python3 -m limxsdk.ability.cli switch 'mimic damping' 'stand'")
+      os.system(f"python3 -m limxsdk.ability.cli switch 'mimic damping walk' 'stand'")
 
     # Both L1 (button index 4) and B (button index 1) are pressed to start the mimic controller
     if sensor_joy.buttons[4] == 1 and sensor_joy.buttons[1] == 1:
-      os.system(f"python3 -m limxsdk.ability.cli switch 'stand damping' 'mimic'")
+      os.system(f"python3 -m limxsdk.ability.cli switch 'stand damping walk' 'mimic'")
     
     # Both R1 (button index 7) and X (button index 2) are pressed to start the walk controller
     if sensor_joy.buttons[7] == 1 and sensor_joy.buttons[2] == 1:
-      os.system(f"python3 -m limxsdk.ability.cli switch 'stand damping' 'walk'")
+      os.system(f"python3 -m limxsdk.ability.cli switch 'stand damping mimic' 'walk'")
 
     # Both L1 (button index 4) and A (button index 0) are pressed to start the damping controller
     if sensor_joy.buttons[4] == 1 and sensor_joy.buttons[0] == 1:
