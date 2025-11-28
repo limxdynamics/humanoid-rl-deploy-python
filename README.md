@@ -2,7 +2,7 @@
 
 # Deployment of Training Results
 
-### 2. Create a Workspace
+### 1. Create a Workspace
 
  You can create an RL deployment development workspace by following these steps:
 
@@ -43,7 +43,7 @@
     echo 'export ROBOT_TYPE=HU_D04_01' >> ~/.bashrc && source ~/.bashrc
     ```
 
-### 3. Simulation Debugging
+### 2. Simulation Debugging
 
 - Run the MuJoCo simulator (Python 3.8 or higher is recommended):
 
@@ -105,7 +105,7 @@
     | L2+X     | Switch to Walk Mode|                                                                  |
 
 
-### 4. Real Robot Debugging
+### 3. Real Robot Debugging
 
 - Set your computer's IP: Ensure your computer is connected to the robot's external network port. Set your computer's IP address to `10.192.1.200` and verify connectivity with the Shell command `ping 10.192.1.2`. Configure your development computer's IP as shown below:
 
