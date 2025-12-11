@@ -101,8 +101,24 @@
     | **按键** | **模式**         | **说明**                                                    |
     | -------- | ---------------- | ----------------------------------------------------------- |
     | L1+Y     | 切换到站立模式   | 如机器人没法站立，请点击MuJoco界面中的“Reset”进行复位一下。 |
-    | L1+B     | 切换到打招呼模式 |                                                             |
-    | L2+X     | 切换到打行走模式|                                                                  |
+    | L1+A     | 切换到打招呼模式 |                                                             |
+    | R1+B     | 切换到打行走模式|   **这个模式可以选择使用自己训练的模型!**  |
+
+
+- 部署自己训练的模型（可选）                                                          
+  - 在[humanoid-rl-isaaclab](https://github.com/limxdynamics/humanoid-rl-isaaclab)项目下，运行推理代码并导出模型为`onnx`格式，在模型目录下找到`policy.onnx`文件：
+    ``` sh
+    python scripts/rsl_rl/play.py --task LimX-Oli-31dof-Velocity --checkpoint path-to-model
+    ```
+  
+  - 把上面得到的 `policy.onnx` 文件放到部署工程代码的目录中
+    ``` sh
+    limx_ws/humanoid-rl-deploy-python/controllers/HU_D04_01/walk_controller/policy/default
+    ```
+
+  - 根据上述步骤启动仿真器以及控制机器人
+
+  - 确保您的模型在仿真器中能正常运行再进行真机部署！
 
 
 ### 3、真机调试
@@ -123,8 +139,8 @@
   python humanoid-rl-deploy-python/main.py 10.192.1.2
   ```
   
-- 这时您可以通过遥控器按键`L1 + △`让机器人进入站立模式。
+- 这时您可以通过遥控器按键`L1 + △（Y）`让机器人进入站立模式。
 
-- 遥控器按`L1 + 〇`控制机器人打招呼。
+- 遥控器按`L1 + 口（A）`控制机器人打招呼。
 
-- 遥控器按`L2 + 口`控制机器人打行走。
+- 遥控器按`R1 + 〇（B）`控制机器人行走。

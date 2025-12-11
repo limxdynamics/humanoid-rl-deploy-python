@@ -101,9 +101,25 @@
     | **Button** | **Mode**         | **Description**                                                    |
     | -------- | ---------------- | ----------------------------------------------------------- |
     | L1+Y     | Switch to Stand Mode   | If the robot cannot stand, click "Reset" in the MuJoCo interface to reset it. |
-    | L1+B     | Switch to Greeting Mode |                                                             |
-    | L2+X     | Switch to Walk Mode|                                                                  |
+    | L1+A     | Switch to Greeting Mode |                                                             |
+    | R1+B     | Switch to Walk Mode|  **You can train your model for this mode!**                                 |
 
+
+- Deploy you own model for robot walking (Optional)
+  - In the [humanoid-rl-isaaclab](https://github.com/limxdynamics/humanoid-rl-isaaclab) project, run the inference code and export the model, you will find a generated `policy.onnx` in the checkpoint folder:
+    ``` sh
+    python scripts/rsl_rl/play.py --task LimX-Oli-31dof-Velocity --checkpoint path-to-model
+    ```
+  
+  - Add the `policy.onnx` to the folder 
+    ``` sh
+    limx_ws/humanoid-rl-deploy-python/controllers/HU_D04_01/walk_controller/policy/default
+    ```
+
+  - Follow the steps above to run the MuJoCo simulator and control the robot.
+
+  - Make sure your model runs perfectly in the simulation before deploying it in the real robot!!!
+  
 
 ### 3. Real Robot Debugging
 
@@ -123,8 +139,8 @@
   python humanoid-rl-deploy-python/main.py 10.192.1.2
   ```
   
-- Now you can press `L1 + △` on the remote control to make the robot stand up.
+- Now you can press `L1 + △ (Y)` on the remote control to make the robot stand up.
 
-- Press `L1 + 〇` on the remote control to make the robot wave.
+- Press `L1 + X (A)` on the remote control to make the robot wave.
 
-- Press `L2 + 口` on the remote control to make the robot walk.
+- Press `R1 + 〇 (B)` on the remote control to make the robot walk.
