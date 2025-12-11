@@ -101,8 +101,8 @@
     | **Button** | **Mode**         | **Description**                                                    |
     | -------- | ---------------- | ----------------------------------------------------------- |
     | L1+Y     | Switch to Stand Mode   | If the robot cannot stand, click "Reset" in the MuJoCo interface to reset it. |
-    | L1+A     | Switch to Greeting Mode |                                                             |
-    | R1+B     | Switch to Walk Mode|  **You can train your model for this mode!**                                 |
+    | L1+B     | Switch to Greeting Mode |                                                             |
+    | R1+X     | Switch to Walk Mode|  **You can train your model for this mode!**                                 |
 
 
 - Deploy you own model for robot walking (Optional)
@@ -141,6 +141,6 @@
   
 - Now you can press `L1 + △ (Y)` on the remote control to make the robot stand up.
 
-- Press `L1 + X (A)` on the remote control to make the robot wave.
+- Press `L1 + 〇（B）` on the remote control to make the robot wave.
 
-- Press `R1 + 〇 (B)` on the remote control to make the robot walk.
+- Press `R1 + 口 (X)` on the remote control to make the robot walk.
