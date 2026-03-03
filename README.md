@@ -144,3 +144,7 @@
 - Press `L1 + 〇（B）` on the remote control to make the robot wave.
 
 - Press `R1 + 口 (X)` on the remote control to make the robot walk.
+
+### 4. Technical Documentation
+
+- [Parallel Joint Mapping Guide](doc/parallel_joint_mapping_en.md): PR/AB joint space mapping and SDK conversion mechanism for ankle and waist parallel mechanisms.
