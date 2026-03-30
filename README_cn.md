@@ -26,19 +26,8 @@
   ```
   
 - 设置机器人型号：如果尚未设置，请按照以下步骤进行设置。
-  - 通过 Shell 命令 `tree -L 1 humanoid-rl-deploy-python/controllers` 列出可用的机器人类型：
-    
-    ```
-    cd ~/limx_ws
-    tree -L 1 humanoid-rl-deploy-python/controllers
-    humanoid-rl-deploy-python/controllers
-    ├── HU_D03_03
-    └── HU_D04_01
-    
-    ```
-    
-  - 以`HU_D04_01`（请根据实际机器人类型进行替换）为例，设置机器人型号类型：
-    
+  - 设置机器人型号类型：
+
     ```
     echo 'export ROBOT_TYPE=HU_D04_01' >> ~/.bashrc && source ~/.bashrc
     ```
@@ -102,21 +91,18 @@
     | -------- | ---------------- | ----------------------------------------------------------- |
     | L1+Y     | 切换到站立模式   | 如机器人没法站立，请点击MuJoco界面中的“Reset”进行复位一下。 |
     | L1+B     | 切换到打招呼模式 |                                                             |
-    | R1+X     | 切换到打行走模式|   **这个模式可以选择使用自己训练的模型!**  |
+    | R1+X     | 切换到行走模式|   **这个模式可以选择使用自己训练的模型!**  |
 
 
-- 部署自己训练的模型（可选）                                                          
-  - 在[humanoid-rl-isaaclab](https://github.com/limxdynamics/humanoid-rl-isaaclab)项目下，运行推理代码并导出模型为`onnx`格式，在模型目录下找到`policy.onnx`文件：
-    ``` sh
-    python scripts/rsl_rl/play.py --task LimX-Oli-31dof-Velocity --checkpoint path-to-model
-    ```
-  
-  - 把上面得到的 `policy.onnx` 文件放到部署工程代码的目录中
+- 部署自己训练的模型（可选）
+  - 将您自己训练的策略模型导出为 ONNX 格式，命名为 `policy.onnx`。
+
+  - 将 `policy.onnx` 文件放到部署工程代码的以下目录中：
     ``` sh
     limx_ws/humanoid-rl-deploy-python/controllers/HU_D04_01/walk_controller/policy/default
     ```
 
-  - 根据上述步骤启动仿真器以及控制机器人
+  - 根据上述步骤启动仿真器以及控制机器人。
 
   - 确保您的模型在仿真器中能正常运行再进行真机部署！
 

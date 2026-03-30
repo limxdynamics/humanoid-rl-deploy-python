@@ -26,19 +26,8 @@
   ```
   
 - Set the robot model: If it is not set yet, follow these steps:
-  - List available robot types with the Shell command `tree -L 1 humanoid-rl-deploy-python/controllers` ：
-    
-    ```
-    cd ~/limx_ws
-    tree -L 1 humanoid-rl-deploy-python/controllers
-    humanoid-rl-deploy-python/controllers
-    ├── HU_D03_03
-    └── HU_D04_01
-    
-    ```
-    
-  - Taking `HU_D04_01` (replace with your actual robot type) as an example, set the robot model type:
-    
+  - Set the robot model type:
+
     ```
     echo 'export ROBOT_TYPE=HU_D04_01' >> ~/.bashrc && source ~/.bashrc
     ```
@@ -105,20 +94,17 @@
     | R1+X     | Switch to Walk Mode|  **You can train your model for this mode!**                                 |
 
 
-- Deploy you own model for robot walking (Optional)
-  - In the [humanoid-rl-isaaclab](https://github.com/limxdynamics/humanoid-rl-isaaclab) project, run the inference code and export the model, you will find a generated `policy.onnx` in the checkpoint folder:
-    ``` sh
-    python scripts/rsl_rl/play.py --task LimX-Oli-31dof-Velocity --checkpoint path-to-model
-    ```
-  
-  - Add the `policy.onnx` to the folder 
+- Deploy your own model for robot walking (Optional)
+  - Export your trained policy to ONNX format and name it `policy.onnx`.
+
+  - Place the `policy.onnx` file into the following directory:
     ``` sh
     limx_ws/humanoid-rl-deploy-python/controllers/HU_D04_01/walk_controller/policy/default
     ```
 
   - Follow the steps above to run the MuJoCo simulator and control the robot.
 
-  - Make sure your model runs perfectly in the simulation before deploying it in the real robot!!!
+  - Make sure your model runs perfectly in the simulation before deploying it on the real robot!
   
 
 ### 3. Real Robot Debugging
