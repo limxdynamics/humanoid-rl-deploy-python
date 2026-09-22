@@ -43,14 +43,14 @@
     
       ```bash
       cd ~/limx_ws
-      pip install humanoid-mujoco-sim/limxsdk-lowlevel/python3/amd64/limxsdk-*-py3-none-any.whl
+      pip install humanoid-mujoco-sim/limxsdk-lowlevel/python3/amd64/limxsdk-*.whl
       ```
     
     - Linux aarch64 环境
     
       ```bash
       cd ~/limx_ws
-      pip install humanoid-mujoco-sim/limxsdk-lowlevel/python3/aarch64/limxsdk-*-py3-none-any.whl
+      pip install humanoid-mujoco-sim/limxsdk-lowlevel/python3/aarch64/limxsdk-*.whl
       ```
     
   - 运行 MuJoCo 仿真器：
