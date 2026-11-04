@@ -15,6 +15,8 @@
 
 # humanoid-rl-deploy-python
 
+> **Oli 人形机器人开源生态的一部分。** 上手路线和其他 Oli 仓库：[Oli 快速上手](https://github.com/limxdynamics/limxdynamics/blob/main/doc/quickstart_cn.md#oli)。
+
 用纯 Python 把强化学习策略部署到 LimX 人形机器人：站立、挥手、行走三个控制器运行 ONNX 策略，
 用遥控器切换，在 MuJoCo 仿真器和真机上都能跑。
 

@@ -15,6 +15,8 @@
 
 # humanoid-rl-deploy-python
 
+> **Part of the Oli humanoid open-source ecosystem.** Where to start and the other Oli repositories: [Oli quick start](https://github.com/limxdynamics/limxdynamics/blob/main/doc/quickstart.md#oli).
+
 Deploy RL policies on the LimX humanoid in plain Python: stand, wave and walk
 controllers that run ONNX policies, switched from the remote controller, in
 the MuJoCo simulator or on the real robot.
