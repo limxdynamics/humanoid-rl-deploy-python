@@ -203,6 +203,14 @@ load and switch controllers, but the limxsdk wheel does not install it.
 
 - Press `R1 + 口 (X)` on the remote control to make the robot walk.
 
+If the robot does not respond as expected, check the two preparation steps first. Neither
+mistake produces an error message:
+
+| What you see | Cause | Fix |
+|---|---|---|
+| The motors buzz or shake as soon as your program sends commands | Not in developer mode: the onboard motion controller still commands the motors and fights yours | Press `R1 + DOWN` |
+| The robot stays limp and ignores your commands | The motors were not activated | Press the right joystick button on the remote |
+
 ## 4. Technical Documentation
 
 - [Parallel Joint Mapping Guide](doc/parallel_joint_mapping_en.md): PR/AB joint space mapping and SDK conversion mechanism for ankle and waist parallel mechanisms.
@@ -219,6 +227,24 @@ and switches between them when it sees these buttons:
 | `R1 + X` | `walk` | Joystick velocity commands, HU_D04_01 only |
 | `L1 + A` | `damping` | Joints held with damping only |
 | `L1 + X` | none | Stops all controllers |
+
+The remote's face buttons carry PlayStation symbols, while this README and the SDK name them with
+letters:
+
+| On the remote | In the docs and SDK |
+|---|---|
+| △ (top) | `Y` |
+| ○ (right) | `B` |
+| □ (left) | `X` |
+| ✕ (bottom) | `A` |
+
+**Command rate for your own controller.** Send a command every 1 ms (1 kHz), as these controllers
+do (`update_rate: 1000` in `controllers.yaml`). The policy can run slower: the walk and mimic
+controllers run it every 10th tick (`decimation: 10`), but they still publish the latest targets,
+torque-clipped against fresh state, on every tick. Do not publish only at the policy rate: the
+[Eden](https://github.com/embodied-ai-nexus/Eden) project measured the parallel waist-roll joint ringing at 25 Hz on hardware when it sent
+one command per 50 Hz policy step; at 1 kHz the buzz stopped and the joint torque above
+10 Hz fell by about 90%.
 
 The walk policy takes the last 5 observations of 102 values (angular
 velocity, projected gravity, velocity command, joint positions and velocities,
