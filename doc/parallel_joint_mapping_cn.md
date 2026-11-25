@@ -96,10 +96,12 @@ MuJoCo 的等式约束求解器在仿真中自动维护并联机构的运动学�
 索引  0- 5: 左腿 (hip_pitch, hip_roll, hip_yaw, knee, ankle_pitch, ankle_roll)
 索引  6-11: 右腿 (hip_pitch, hip_roll, hip_yaw, knee, ankle_pitch, ankle_roll)
 索引 12-14: 腰部 (waist_yaw, waist_roll, waist_pitch)
-索引 15-16: 头部 (head_pitch, head_yaw)
+索引 15-16: 头部 (head_yaw, head_pitch)
 索引 17-23: 左臂 (shoulder_pitch/roll/yaw, elbow, wrist_yaw/pitch/roll)
 索引 24-30: 右臂 (shoulder_pitch/roll/yaw, elbow, wrist_yaw/pitch/roll)
 ```
+
+在 HU_D04_01 仿真中，`getMotorNames()` 与 `RobotState.motor_names` 均返回上述顺序，索引从 0 开始。walk 和 mimic 控制器按此顺序读取关节状态、下发关节指令。接入按其他顺序导出的策略时，需要按关节名对齐输入观测和输出动作。
 
 > 默认 PR 模式下，所有参数（kp、kd、default_angle、action_scale）均在 PR 空间中定义。
 

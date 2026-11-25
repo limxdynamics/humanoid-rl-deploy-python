@@ -96,10 +96,12 @@ Parameter arrays in `walk_param.yaml` and `mimic_param.yaml` follow this order (
 Index  0- 5: Left leg  (hip_pitch, hip_roll, hip_yaw, knee, ankle_pitch, ankle_roll)
 Index  6-11: Right leg (hip_pitch, hip_roll, hip_yaw, knee, ankle_pitch, ankle_roll)
 Index 12-14: Waist     (waist_yaw, waist_roll, waist_pitch)
-Index 15-16: Head      (head_pitch, head_yaw)
+Index 15-16: Head      (head_yaw, head_pitch)
 Index 17-23: Left arm  (shoulder_pitch/roll/yaw, elbow, wrist_yaw/pitch/roll)
 Index 24-30: Right arm (shoulder_pitch/roll/yaw, elbow, wrist_yaw/pitch/roll)
 ```
+
+In HU_D04_01 simulation, both `getMotorNames()` and `RobotState.motor_names` return the order above, with zero-based indices. The walk and mimic controllers read joint states and send joint commands in this order. When integrating a policy exported with a different joint order, map its input observations and output actions by joint name.
 
 > In default PR Mode, all parameters (kp, kd, default_angle, action_scale) are defined in PR space.
 

@@ -23,8 +23,8 @@ HumanoidRobotCfg:
       0.1121,  # waist_roll_joint
       0.1121,  # waist_pitch_joint
       # head
-      0.3141,  # head_pitch_joint
       0.3141,  # head_yaw_joint
+      0.3141,  # head_pitch_joint
       # arm
       0.1200,  # left_shoulder_pitch_joint
       0.1200,  # left_shoulder_roll_joint
